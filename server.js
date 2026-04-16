@@ -5,9 +5,33 @@ require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const EMAIL_USER = process.env.EMAIL_USER;
+const EMAIL_PASS = process.env.EMAIL_PASS;
+const SMTP_HOST = process.env.SMTP_HOST || 'smtp.gmail.com';
+const SMTP_PORT = Number(process.env.SMTP_PORT || 587);
+const SMTP_SECURE = SMTP_PORT === 465;
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname)));
+
+const transporter = nodemailer.createTransport({
+  host: SMTP_HOST,
+  port: SMTP_PORT,
+  secure: SMTP_SECURE,
+  requireTLS: !SMTP_SECURE,
+  connectionTimeout: 20000,
+  greetingTimeout: 20000,
+  socketTimeout: 30000,
+  family: 4,
+  tls: {
+    servername: SMTP_HOST,
+    minVersion: 'TLSv1.2',
+  },
+  auth: {
+    user: EMAIL_USER,
+    pass: EMAIL_PASS,
+  },
+});
 
 // Contact form endpoint
 app.post('/api/contact', async (req, res) => {
@@ -17,17 +41,13 @@ app.post('/api/contact', async (req, res) => {
     return res.status(400).json({ error: 'All fields are required.' });
   }
 
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS, // Gmail App Password
-    },
-  });
+  if (!EMAIL_USER || !EMAIL_PASS) {
+    return res.status(500).json({ error: 'Email service is not configured. Check EMAIL_USER and EMAIL_PASS.' });
+  }
 
   const mailOptions = {
-    from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
-    to: process.env.EMAIL_USER,
+    from: `"Portfolio Contact" <${EMAIL_USER}>`,
+    to: EMAIL_USER,
     replyTo: email,
     subject: `New message from ${name} — Portfolio`,
     html: `
@@ -50,7 +70,7 @@ app.post('/api/contact', async (req, res) => {
     res.json({ success: true });
   } catch (err) {
     console.error('Email error:', err);
-    res.status(500).json({ error: 'Failed to send email.' });
+    res.status(500).json({ error: 'Failed to send email. Verify Gmail App Password in Railway variables.' });
   }
 });
 

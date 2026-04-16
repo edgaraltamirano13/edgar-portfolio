@@ -4,6 +4,7 @@
 
 const form = document.getElementById('contact-form');
 const statusEl = document.getElementById('form-status');
+const mailtoFallbackBtn = document.getElementById('mailto-fallback-btn');
 const apiBase = (window.PORTFOLIO_API_BASE || '').replace(/\/$/, '');
 const contactEndpoint = `${apiBase}/api/contact`;
 
@@ -16,10 +17,12 @@ form.addEventListener('submit', async (e) => {
 
   // Basic validation
   if (!name || !email || !message) {
+    hideMailtoFallback();
     showStatus('Please fill in all fields.', 'error');
     return;
   }
   if (!isValidEmail(email)) {
+    hideMailtoFallback();
     showStatus('Please enter a valid email address.', 'error');
     return;
   }
@@ -38,21 +41,28 @@ form.addEventListener('submit', async (e) => {
       body: JSON.stringify({ name, email, message }),
     });
 
+    const payload = await response.json().catch(() => ({}));
+
     if (response.ok) {
+      hideMailtoFallback();
       showStatus('Message sent! I\'ll get back to you soon.', 'success');
       form.reset();
     } else {
-      throw new Error('Server error');
+      throw new Error(payload.error || 'Server error while sending email.');
     }
   } catch (err) {
-    // Fallback: open mailto if server not available
-    const mailtoLink = `mailto:edgaraltamirano13101@gmail.com?subject=Portfolio Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-    window.location.href = mailtoLink;
-    showStatus('Opening your email client...', 'success');
-  }
+    showMailtoFallback(name, email, message);
 
-  submitBtn.innerHTML = originalText;
-  submitBtn.disabled = false;
+    // Do not auto-open mail client; show errors and keep the UX in-page.
+    if (err instanceof TypeError) {
+      showStatus('Connection issue. Please try again in a moment.', 'error');
+    } else {
+      showStatus(err.message || 'Could not send message.', 'error');
+    }
+  } finally {
+    submitBtn.innerHTML = originalText;
+    submitBtn.disabled = false;
+  }
 });
 
 function showStatus(msg, type) {
@@ -66,6 +76,25 @@ function showStatus(msg, type) {
   }
 
   setTimeout(() => statusEl.classList.add('hidden'), 5000);
+}
+
+function showMailtoFallback(name, email, message) {
+  if (!mailtoFallbackBtn) {
+    return;
+  }
+
+  const mailtoLink = `mailto:edgaraltamirano13101@gmail.com?subject=Portfolio Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+  mailtoFallbackBtn.href = mailtoLink;
+  mailtoFallbackBtn.classList.remove('hidden');
+}
+
+function hideMailtoFallback() {
+  if (!mailtoFallbackBtn) {
+    return;
+  }
+
+  mailtoFallbackBtn.classList.add('hidden');
+  mailtoFallbackBtn.href = '#';
 }
 
 function isValidEmail(email) {
