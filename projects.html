@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Edgar Salazar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { brand: '#CC0000', dark: '#0a0a0a', card: '#1a1a1a' },
+          fontFamily: { display: ['Bebas Neue', 'sans-serif'], body: ['Space Grotesk', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-dark text-white font-body overflow-x-hidden cursor-none">
+
+  <div id="cursor" class="cursor-dot"></div>
+  <div id="cursor-ring" class="cursor-ring"></div>
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 w-full z-50 px-8 py-5 flex justify-between items-center">
+    <a href="index.html" class="text-white font-display text-2xl tracking-widest hover:text-brand transition-colors">ES</a>
+    <div class="flex gap-8 text-sm tracking-widest uppercase font-medium">
+      <a href="projects.html" class="text-brand">Projects</a>
+      <a href="demoreel.html" class="text-gray-400 hover:text-brand transition-colors">Demo Reel</a>
+      <a href="contact.html" class="text-gray-400 hover:text-brand transition-colors">Contact</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <section class="pt-32 pb-12 px-8 md:px-16 max-w-7xl mx-auto">
+    <div class="overflow-hidden">
+      <p class="text-brand text-sm tracking-[0.3em] uppercase font-medium mb-3 reveal-up">Portfolio</p>
+    </div>
+    <div class="overflow-hidden">
+      <h1 class="font-display text-[clamp(3rem,7vw,6rem)] leading-none tracking-wider reveal-up" style="animation-delay:0.1s">PROJECTS</h1>
+    </div>
+
+    <!-- FILTER TABS -->
+    <div class="flex gap-3 mt-10 flex-wrap reveal-up" style="animation-delay:0.2s" id="filter-tabs">
+      <button class="filter-btn active px-6 py-2 rounded-full border border-brand bg-brand text-white text-sm tracking-widest uppercase font-medium transition-all duration-200" data-filter="all">All</button>
+      <button class="filter-btn px-6 py-2 rounded-full border border-white/20 text-gray-400 text-sm tracking-widest uppercase font-medium hover:border-brand hover:text-brand transition-all duration-200" data-filter="motion">Motion Graphics</button>
+      <button class="filter-btn px-6 py-2 rounded-full border border-white/20 text-gray-400 text-sm tracking-widest uppercase font-medium hover:border-brand hover:text-brand transition-all duration-200" data-filter="design">Design</button>
+      <button class="filter-btn px-6 py-2 rounded-full border border-white/20 text-gray-400 text-sm tracking-widest uppercase font-medium hover:border-brand hover:text-brand transition-all duration-200" data-filter="code">Code</button>
+      <button class="filter-btn px-6 py-2 rounded-full border border-white/20 text-gray-400 text-sm tracking-widest uppercase font-medium hover:border-brand hover:text-brand transition-all duration-200" data-filter="video">Video</button>
+    </div>
+  </section>
+
+  <!-- PROJECTS GRID -->
+  <section class="px-8 md:px-16 pb-24 max-w-7xl mx-auto">
+    <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+
+      <!-- COLUMN 1: MOTION GRAPHICS -->
+      <div class="column-wrapper">
+        <h2 class="font-display text-2xl tracking-[0.2em] text-white/60 mb-6 uppercase">Motion Graphics</h2>
+        <div class="bg-card rounded-2xl p-4 flex flex-col gap-4">
+
+          <!-- Project Card: Jam Jar -->
+          <div class="project-card group bg-dark rounded-xl p-4 flex gap-4 items-start hover:bg-white/5 transition-all duration-300 cursor-pointer" data-category="motion" data-project-id="jam-jar" data-href="project-detail.html">
+            <div class="flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden bg-black relative">
+              <video src="videos/JAMJAR_EDGAR-SALAZAR_CHANG-TING_QUIJADA-DENISSE_KIM-DURI_UTTAM-Gajulabalaja.mp4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" muted autoplay loop playsinline preload="metadata"></video>
+              <div class="img-placeholder absolute inset-0 rounded-xl pointer-events-none" style="background: rgba(180,0,0,0.32);"></div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-medium text-white text-sm leading-tight group-hover:text-brand transition-colors line-clamp-2">Jam Jar: Preserving Musical Moments. Inspiration is fleeting. A digital space where musicians can capture raw ideas without technical hurdles.</h3>
+              <span class="text-brand text-xs tracking-widest uppercase font-medium mt-2 block">Motion</span>
+            </div>
+            <svg class="w-4 h-4 text-gray-600 group-hover:text-brand group-hover:translate-x-1 transition-all flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </div>
+
+          <div class="project-card group bg-dark rounded-xl p-4 flex gap-4 items-start hover:bg-white/5 transition-all duration-300 cursor-pointer" data-category="motion" data-project-id="kinetic-typography">
+            <div class="flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden bg-black relative">
+              <video src="videos/Assignment1-Kinetic Typography - EdgarSalazar_JennyKim.mp4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" muted autoplay loop playsinline preload="metadata"></video>
+              <div class="img-placeholder absolute inset-0 rounded-xl pointer-events-none" style="background: rgba(180,0,0,0.32);"></div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-medium text-white text-sm leading-tight group-hover:text-brand transition-colors line-clamp-2">Kinetic Typography: Static text transformed into a dynamic visual narrative synced to audio.</h3>
+              <span class="text-brand text-xs tracking-widest uppercase font-medium mt-2 block">Motion</span>
+            </div>
+            <svg class="w-4 h-4 text-gray-600 group-hover:text-brand group-hover:translate-x-1 transition-all flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </div>
+
+          <div class="project-card group bg-dark rounded-xl p-4 flex gap-4 items-start hover:bg-white/5 transition-all duration-300 cursor-pointer" data-category="motion" data-project-id="social-media-kinetic">
+            <div class="flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden bg-black relative">
+              <video src="videos/SOCIALMEDIA.mp4" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300" muted autoplay loop playsinline preload="metadata"></video>
+              <div class="img-placeholder absolute inset-0 rounded-xl pointer-events-none" style="background: rgba(180,0,0,0.32);"></div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-medium text-white text-sm leading-tight group-hover:text-brand transition-colors line-clamp-2">Social Media: Kinetic Content Strategy for shareable micro-content and audience engagement.</h3>
+              <span class="text-brand text-xs tracking-widest uppercase font-medium mt-2 block">Motion</span>
+            </div>
+            <svg class="w-4 h-4 text-gray-600 group-hover:text-brand group-hover:translate-x-1 transition-all flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- COLUMN 2: DESIGN -->
+      <div class="column-wrapper">
+        <h2 class="font-display text-2xl tracking-[0.2em] text-white/60 mb-6 uppercase">Design</h2>
+        <div class="bg-card rounded-2xl p-4 flex flex-col gap-4">
+
+          <div class="project-card group bg-dark rounded-xl p-4 flex gap-4 items-start hover:bg-white/5 transition-all duration-300 cursor-pointer" data-category="design">
+            <div class="flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden bg-black relative">
+              <img src="images/project4.jpg" alt="" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" onerror="this.style.display='none'" />
+              <div class="img-placeholder absolute inset-0 bg-gradient-to-br from-card to-black rounded-xl"></div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-medium text-white text-sm leading-tight group-hover:text-brand transition-colors line-clamp-2">JamJar: Instant capture for musical sessions. Designed for musicians who need a fast, intuitive...</h3>
+              <span class="text-brand text-xs tracking-widest uppercase font-medium mt-2 block">UI/UX</span>
+            </div>
+            <svg class="w-4 h-4 text-gray-600 group-hover:text-brand group-hover:translate-x-1 transition-all flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </div>
+
+          <div class="project-card group bg-dark rounded-xl p-4 flex gap-4 items-start hover:bg-white/5 transition-all duration-300 cursor-pointer" data-category="design">
+            <div class="flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden bg-black relative">
+              <div class="img-placeholder absolute inset-0 bg-gradient-to-br from-card to-black rounded-xl"></div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-medium text-white text-sm leading-tight group-hover:text-brand transition-colors line-clamp-2">JamJar: Instant capture for musical sessions. Designed for musicians who need a fast, intuitive...</h3>
+              <span class="text-brand text-xs tracking-widest uppercase font-medium mt-2 block">Branding</span>
+            </div>
+            <svg class="w-4 h-4 text-gray-600 group-hover:text-brand group-hover:translate-x-1 transition-all flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </div>
+
+          <div class="project-card group bg-dark rounded-xl p-4 flex gap-4 items-start hover:bg-white/5 transition-all duration-300 cursor-pointer" data-category="design">
+            <div class="flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden bg-black relative">
+              <div class="img-placeholder absolute inset-0 bg-gradient-to-br from-card to-black rounded-xl"></div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-medium text-white text-sm leading-tight group-hover:text-brand transition-colors line-clamp-2">JamJar: Instant capture for musical sessions. Designed for musicians who need a fast, intuitive...</h3>
+              <span class="text-brand text-xs tracking-widest uppercase font-medium mt-2 block">Print</span>
+            </div>
+            <svg class="w-4 h-4 text-gray-600 group-hover:text-brand group-hover:translate-x-1 transition-all flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- COLUMN 3: CODE -->
+      <div class="column-wrapper">
+        <h2 class="font-display text-2xl tracking-[0.2em] text-white/60 mb-6 uppercase">Code</h2>
+        <div class="bg-card rounded-2xl p-4 flex flex-col gap-4">
+
+          <div class="project-card group bg-dark rounded-xl p-4 flex gap-4 items-start hover:bg-white/5 transition-all duration-300 cursor-pointer" data-category="code" data-project-id="api-project">
+            <div class="flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden bg-black relative">
+              <div class="code-thumb code-thumb-api absolute inset-0 rounded-xl">
+                <div class="code-thumb__top"></div>
+                <div class="code-thumb__line"></div>
+                <div class="code-thumb__line short"></div>
+                <div class="code-thumb__chip">API</div>
+              </div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-medium text-white text-sm leading-tight group-hover:text-brand transition-colors line-clamp-2">API Project: colorful coding assignment focused on structured web development and practical JavaScript implementation.</h3>
+              <span class="text-brand text-xs tracking-widest uppercase font-medium mt-2 block">Code Project</span>
+            </div>
+            <svg class="w-4 h-4 text-gray-600 group-hover:text-brand group-hover:translate-x-1 transition-all flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </div>
+
+          <div class="project-card group bg-dark rounded-xl p-4 flex gap-4 items-start hover:bg-white/5 transition-all duration-300 cursor-pointer" data-category="code" data-project-id="digital-museum">
+            <div class="flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden bg-black relative">
+              <div class="code-thumb code-thumb-museum absolute inset-0 rounded-xl">
+                <div class="code-thumb__top"></div>
+                <div class="code-thumb__line"></div>
+                <div class="code-thumb__line short"></div>
+                <div class="code-thumb__chip">MUSEUM</div>
+              </div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-medium text-white text-sm leading-tight group-hover:text-brand transition-colors line-clamp-2">Digital Museum: a museum-style web project to post and explore historically prohibited stories and artifacts.</h3>
+              <span class="text-brand text-xs tracking-widest uppercase font-medium mt-2 block">Code Project</span>
+            </div>
+            <svg class="w-4 h-4 text-gray-600 group-hover:text-brand group-hover:translate-x-1 transition-all flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </div>
+
+          <div class="project-card group bg-dark rounded-xl p-4 flex gap-4 items-start hover:bg-white/5 transition-all duration-300 cursor-pointer" data-category="code" data-project-id="mobile-app">
+            <div class="flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden bg-black relative">
+              <div class="code-thumb code-thumb-mobile absolute inset-0 rounded-xl">
+                <div class="code-thumb__top"></div>
+                <div class="code-thumb__line"></div>
+                <div class="code-thumb__line short"></div>
+                <div class="code-thumb__chip">MOBILE</div>
+              </div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-medium text-white text-sm leading-tight group-hover:text-brand transition-colors line-clamp-2">Mobile Application Development: app-focused project designed and tested for mobile experiences.</h3>
+              <span class="text-brand text-xs tracking-widest uppercase font-medium mt-2 block">Code Project</span>
+            </div>
+            <svg class="w-4 h-4 text-gray-600 group-hover:text-brand group-hover:translate-x-1 transition-all flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </div>
+
+          <div class="project-card group bg-dark rounded-xl p-4 flex gap-4 items-start hover:bg-white/5 transition-all duration-300 cursor-pointer" data-category="code" data-project-id="wet-canada">
+            <div class="flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden bg-black relative">
+              <div class="code-thumb code-thumb-wet absolute inset-0 rounded-xl">
+                <div class="code-thumb__top"></div>
+                <div class="code-thumb__line"></div>
+                <div class="code-thumb__line short"></div>
+                <div class="code-thumb__chip">WET</div>
+              </div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-medium text-white text-sm leading-tight group-hover:text-brand transition-colors line-clamp-2">WET Canada Example: practical WET implementation as a Canadian web page prototype.</h3>
+              <span class="text-brand text-xs tracking-widest uppercase font-medium mt-2 block">Code Project</span>
+            </div>
+            <svg class="w-4 h-4 text-gray-600 group-hover:text-brand group-hover:translate-x-1 transition-all flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </div>
+
+          <div class="project-card group bg-dark rounded-xl p-4 flex gap-4 items-start hover:bg-white/5 transition-all duration-300 cursor-pointer" data-category="code" data-project-id="framework-project">
+            <div class="flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden bg-black relative">
+              <div class="code-thumb code-thumb-framework absolute inset-0 rounded-xl">
+                <div class="code-thumb__top"></div>
+                <div class="code-thumb__line"></div>
+                <div class="code-thumb__line short"></div>
+                <div class="code-thumb__chip">FRAME</div>
+              </div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-medium text-white text-sm leading-tight group-hover:text-brand transition-colors line-clamp-2">Framework Project: web assignment exploring layout structure and reusable component patterns.</h3>
+              <span class="text-brand text-xs tracking-widest uppercase font-medium mt-2 block">Code Project</span>
+            </div>
+            <svg class="w-4 h-4 text-gray-600 group-hover:text-brand group-hover:translate-x-1 transition-all flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- COLUMN 4: VIDEO -->
+      <div class="column-wrapper">
+        <h2 class="font-display text-2xl tracking-[0.2em] text-white/60 mb-6 uppercase">Video</h2>
+        <div class="bg-card rounded-2xl p-4 flex flex-col gap-4">
+
+          <div class="project-card group bg-dark rounded-xl p-4 flex gap-4 items-start hover:bg-white/5 transition-all duration-300 cursor-pointer" data-category="video" data-project-id="stoked-video">
+            <div class="flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden bg-black relative">
+              <video src="videos/Stoked-EdgarSalazar_JennyKim_DenisseQuijada.mp4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" muted autoplay loop playsinline preload="metadata"></video>
+              <div class="img-placeholder absolute inset-0 rounded-xl pointer-events-none" style="background: rgba(180,0,0,0.32);"></div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-medium text-white text-sm leading-tight group-hover:text-brand transition-colors line-clamp-2">Stoked: Creative Editorial & Sound Redesign. A full editorial and audio rebuild focused on impact, rhythm, and immersion.</h3>
+              <span class="text-brand text-xs tracking-widest uppercase font-medium mt-2 block">Video</span>
+            </div>
+            <svg class="w-4 h-4 text-gray-600 group-hover:text-brand group-hover:translate-x-1 transition-all flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECT MODAL OVERLAY -->
+  <div id="project-modal" class="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-8 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="bg-card rounded-2xl max-w-2xl w-full p-8 relative max-h-[80vh] overflow-y-auto">
+      <button id="close-modal" class="absolute top-2 right-2 z-20 w-6 h-6 rounded-full bg-white/15 hover:bg-brand flex items-center justify-center transition-colors shadow-md shadow-black/30">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <div id="modal-content" class="pt-3"></div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/projects.js"></script>
+</body>
+</html>

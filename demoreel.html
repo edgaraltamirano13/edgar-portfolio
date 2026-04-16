@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demo Reel — Edgar Salazar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { brand: '#CC0000', dark: '#0a0a0a', card: '#1a1a1a' },
+          fontFamily: { display: ['Bebas Neue', 'sans-serif'], body: ['Space Grotesk', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-dark text-white font-body overflow-x-hidden cursor-none">
+
+  <div id="cursor" class="cursor-dot"></div>
+  <div id="cursor-ring" class="cursor-ring"></div>
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 w-full z-50 px-8 py-5 flex justify-between items-center">
+    <a href="index.html" class="text-white font-display text-2xl tracking-widest hover:text-brand transition-colors">ES</a>
+    <div class="flex gap-8 text-sm tracking-widest uppercase font-medium">
+      <a href="projects.html" class="text-gray-400 hover:text-brand transition-colors">Projects</a>
+      <a href="demoreel.html" class="text-brand">Demo Reel</a>
+      <a href="contact.html" class="text-gray-400 hover:text-brand transition-colors">Contact</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <section class="pt-32 pb-8 px-8 md:px-16 max-w-7xl mx-auto">
+    <p class="text-brand text-sm tracking-[0.3em] uppercase font-medium mb-3 reveal-up">Showreel</p>
+    <h1 class="font-display text-[clamp(3rem,7vw,6rem)] leading-none tracking-wider reveal-up" style="animation-delay:0.1s">DEMO REEL</h1>
+  </section>
+
+  <!-- MAIN VIDEO + THUMBNAILS LAYOUT -->
+  <section class="px-8 md:px-16 py-8 max-w-7xl mx-auto">
+    <div class="flex flex-col lg:flex-row gap-6 reveal-up" style="animation-delay:0.2s">
+
+      <!-- Main Video (large) -->
+      <div class="flex-1 lg:flex-[3]">
+        <div class="video-container rounded-2xl overflow-hidden bg-card relative aspect-video group cursor-pointer" id="main-video-wrapper">
+          <!-- Replace with your video embed or file -->
+          <video id="main-video" class="w-full h-full object-cover" poster="images/reel-poster.jpg" preload="metadata">
+            <!-- <source src="videos/demoreel.mp4" type="video/mp4" /> -->
+          </video>
+          <!-- Placeholder when no video -->
+          <div id="video-placeholder" class="absolute inset-0 bg-gradient-to-br from-card to-black flex items-center justify-center">
+            <div class="text-center">
+              <div class="w-16 h-16 rounded-full border-2 border-white/20 flex items-center justify-center mx-auto mb-3 group-hover:border-brand transition-colors">
+                <svg class="w-6 h-6 text-white/40 group-hover:text-brand transition-colors ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <p class="text-white/20 text-sm tracking-widest uppercase">Demo Reel 2025</p>
+            </div>
+          </div>
+          <!-- Play Button Overlay -->
+          <button id="play-btn" class="absolute inset-0 flex items-center justify-center group/play opacity-0 hover:opacity-100 transition-opacity bg-black/20">
+            <div class="w-20 h-20 rounded-full bg-brand/90 flex items-center justify-center group-hover/play:scale-110 transition-transform">
+              <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Thumbnail Grid (2x2) -->
+      <div class="lg:flex-[1] grid grid-cols-2 gap-4">
+        <div class="thumbnail-item rounded-xl overflow-hidden bg-card aspect-square relative cursor-pointer group" data-src="">
+          <div class="img-placeholder absolute inset-0 bg-gradient-to-br from-card to-black flex items-center justify-center">
+            <svg class="w-6 h-6 text-white/20 group-hover:text-brand transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="absolute inset-0 bg-brand/0 group-hover:bg-brand/20 transition-colors rounded-xl"></div>
+          <div class="absolute bottom-2 left-2 right-2 text-xs text-white/0 group-hover:text-white/80 transition-colors font-medium">Clip 01</div>
+        </div>
+        <div class="thumbnail-item rounded-xl overflow-hidden bg-card aspect-square relative cursor-pointer group" data-src="">
+          <div class="img-placeholder absolute inset-0 bg-gradient-to-br from-card to-black flex items-center justify-center">
+            <svg class="w-6 h-6 text-white/20 group-hover:text-brand transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="absolute inset-0 bg-brand/0 group-hover:bg-brand/20 transition-colors rounded-xl"></div>
+          <div class="absolute bottom-2 left-2 right-2 text-xs text-white/0 group-hover:text-white/80 transition-colors font-medium">Clip 02</div>
+        </div>
+        <div class="thumbnail-item rounded-xl overflow-hidden bg-card aspect-square relative cursor-pointer group" data-src="">
+          <div class="img-placeholder absolute inset-0 bg-gradient-to-br from-card to-black flex items-center justify-center">
+            <svg class="w-6 h-6 text-white/20 group-hover:text-brand transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="absolute inset-0 bg-brand/0 group-hover:bg-brand/20 transition-colors rounded-xl"></div>
+          <div class="absolute bottom-2 left-2 right-2 text-xs text-white/0 group-hover:text-white/80 transition-colors font-medium">Clip 03</div>
+        </div>
+        <div class="thumbnail-item rounded-xl overflow-hidden bg-card aspect-square relative cursor-pointer group" data-src="">
+          <div class="img-placeholder absolute inset-0 bg-gradient-to-br from-card to-black flex items-center justify-center">
+            <svg class="w-6 h-6 text-white/20 group-hover:text-brand transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="absolute inset-0 bg-brand/0 group-hover:bg-brand/20 transition-colors rounded-xl"></div>
+          <div class="absolute bottom-2 left-2 right-2 text-xs text-white/0 group-hover:text-white/80 transition-colors font-medium">Clip 04</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DESCRIPTION + PROJECT LIST -->
+  <section class="px-8 md:px-16 py-12 max-w-7xl mx-auto">
+    <div class="flex flex-col lg:flex-row gap-16">
+
+      <!-- Description Left -->
+      <div class="flex-1 reveal-up" style="animation-delay:0.3s">
+        <p class="text-gray-300 leading-relaxed text-lg max-w-lg">
+          This is my Demo Reel: a collection of my best work in animation, motion graphics, and interface design. A look into my ability to create dynamic and functional visual experiences.
+        </p>
+        <p class="text-gray-500 mt-4 leading-relaxed">
+          List of projects that can also be found in my portfolio:
+        </p>
+        <ul class="mt-4 flex flex-col gap-3">
+          <li class="flex items-center gap-3 text-gray-400 hover:text-white transition-colors cursor-pointer group">
+            <span class="w-2 h-2 rounded-full bg-brand flex-shrink-0 group-hover:scale-150 transition-transform"></span>
+            <span>— Project name here</span>
+          </li>
+          <li class="flex items-center gap-3 text-gray-400 hover:text-white transition-colors cursor-pointer group">
+            <span class="w-2 h-2 rounded-full bg-brand flex-shrink-0 group-hover:scale-150 transition-transform"></span>
+            <span>— Project name here</span>
+          </li>
+          <li class="flex items-center gap-3 text-gray-400 hover:text-white transition-colors cursor-pointer group">
+            <span class="w-2 h-2 rounded-full bg-brand flex-shrink-0 group-hover:scale-150 transition-transform"></span>
+            <span>— Project name here</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Tech / Tools Right -->
+      <div class="flex-1 reveal-up" style="animation-delay:0.4s">
+        <p class="text-brand text-sm tracking-[0.3em] uppercase font-medium mb-6">Tools & Skills</p>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-4 py-2 rounded-full bg-card border border-white/10 text-sm text-gray-300 hover:border-brand hover:text-brand transition-all cursor-default">After Effects</span>
+          <span class="px-4 py-2 rounded-full bg-card border border-white/10 text-sm text-gray-300 hover:border-brand hover:text-brand transition-all cursor-default">Premiere Pro</span>
+          <span class="px-4 py-2 rounded-full bg-card border border-white/10 text-sm text-gray-300 hover:border-brand hover:text-brand transition-all cursor-default">Cinema 4D</span>
+          <span class="px-4 py-2 rounded-full bg-card border border-white/10 text-sm text-gray-300 hover:border-brand hover:text-brand transition-all cursor-default">Figma</span>
+          <span class="px-4 py-2 rounded-full bg-card border border-white/10 text-sm text-gray-300 hover:border-brand hover:text-brand transition-all cursor-default">Illustrator</span>
+          <span class="px-4 py-2 rounded-full bg-card border border-white/10 text-sm text-gray-300 hover:border-brand hover:text-brand transition-all cursor-default">Photoshop</span>
+          <span class="px-4 py-2 rounded-full bg-card border border-white/10 text-sm text-gray-300 hover:border-brand hover:text-brand transition-all cursor-default">DaVinci Resolve</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Video placeholder logic
+    const mainVideo = document.getElementById('main-video');
+    const placeholder = document.getElementById('video-placeholder');
+    const playBtn = document.getElementById('play-btn');
+
+    if (mainVideo && mainVideo.src) {
+      placeholder.style.display = 'none';
+    }
+
+    // Thumbnail swap
+    document.querySelectorAll('.thumbnail-item').forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        const src = thumb.dataset.src;
+        if (src && mainVideo) {
+          mainVideo.src = src;
+          mainVideo.play();
+          placeholder.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
